@@ -16,7 +16,7 @@
 ## 安装(install)
 `go get github.com/yezihack/e`
 
-## 简单使用
+## 简单使用(Use)
 ```go
 func foo() error {
 	return e.New("foo")
