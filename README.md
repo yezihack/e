@@ -13,7 +13,7 @@
 ## 文档(Documentation)
 [https://godoc.org/github.com/yezihack/e](https://godoc.org/github.com/yezihack/e)
 
-## 安装(install)
+## 安装(Install)
 `go get github.com/yezihack/e`
 
 ## 简单使用(Use)
