@@ -16,6 +16,19 @@
 ## 安装(install)
 `go get github.com/yezihack/e`
 
+## 简单使用
+```go
+func foo() error {
+	return e.New("foo")
+}
+func main() {
+    err := foo()
+    if err != nil && e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+        log.Println(e.Convert(err).ToStr()) // 输出字符串形式
+        log.Println(e.Convert(err).ToArr()) // 输出数组形式
+    }
+}
+```
 
 ## 实例(Example)
 1. [基本用法](example/1.how.go)

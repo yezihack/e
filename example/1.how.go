@@ -20,7 +20,7 @@ func main() {
 	// 2021/01/15 20:23:21 foo,stack error
 
 	// (2)输出堆栈信息 by string
-	if e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+	if err != nil && e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
 		log.Println(e.Convert(err).ToStr())
 	}
 	// out:
