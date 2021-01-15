@@ -45,8 +45,9 @@ func ToStr(err error) string {
 		return err.Error()
 	}
 	var s string
+	size := len(stacks)
 	for idx, item := range stacks {
-		if idx == 0 {
+		if idx == 0 || size-idx <= 2 {
 			continue
 		}
 		s += fmt.Sprintf("file:%s, line:%s, func:%s\n", item.File, item.LineCode, item.FuncName)
