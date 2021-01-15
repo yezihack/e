@@ -15,6 +15,7 @@
 
 
 ## Example
+输出普通信息和堆栈信息(string or array)
 ```go
 package main
 
