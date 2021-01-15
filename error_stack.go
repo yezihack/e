@@ -52,7 +52,11 @@ func MarshalStack(err error) []*StackSourceEntity {
 	st := sterr.StackTrace()
 	s := &state{}
 	out := make([]*StackSourceEntity, 0, len(st))
-	for _, frame := range st {
+	size := len(st)
+	for idx, frame := range st {
+		if idx == 0 || size-idx <= 2 {
+			continue
+		}
 		out = append(out, &StackSourceEntity{
 			File:     frameField(frame, s, 's'),
 			LineCode: frameField(frame, s, 'd'),
