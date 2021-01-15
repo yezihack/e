@@ -17,7 +17,12 @@
 `go get github.com/yezihack/e`
 
 
-## Example
+## 实例(Example)
+1. [基本用法](example/1.how.go)
+1. [Code用法](example/2.code.go)
+1. [兼容老项目里的 error](example/3.compatibility-error.go)
+1. 更多等待更新中...
+
 输出普通信息和堆栈信息(string or array)
 ```go
 package main
