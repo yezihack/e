@@ -16,6 +16,17 @@ func Assert(e error) *StackError {
 	}
 }
 
+// 对 error 进行断言, 是否自定义的错误,即StackError
+// 判断是否是,返回二个参数, 带bool
+func AssertB(e error) (*StackError, bool) {
+	switch e.(type) {
+	case *StackError:
+		return e.(*StackError), true
+	default:
+		return nil, false
+	}
+}
+
 func Is(err, target error) bool {
 	return errors.Is(err, target)
 }
@@ -34,7 +45,10 @@ func ToStr(err error) string {
 		return err.Error()
 	}
 	var s string
-	for _, item := range stacks {
+	for idx, item := range stacks {
+		if idx == 0 {
+			continue
+		}
 		s += fmt.Sprintf("file:%s, line:%s, func:%s\n", item.File, item.LineCode, item.FuncName)
 	}
 	return s

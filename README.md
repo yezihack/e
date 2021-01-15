@@ -10,6 +10,9 @@
 
 而且重新实现了系统自带的`error`接口,提供 `code` 自定义功能.
 
+## 安装(install)
+`go get github.com/yezihack/e`
+
 ## 堆栈信息对比
 |原始堆栈信息|封装后的堆栈信息|
 |---|---|

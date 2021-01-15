@@ -52,7 +52,7 @@ func (c *StackError) ToStrByExtra() string {
 	return s
 }
 
-// 打印堆栈信息 by string
+// 打印堆栈信息 by string, 带 \n 分隔
 func (c *StackError) ToStr() string {
 	return ToStr(c.err)
 }
