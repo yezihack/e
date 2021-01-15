@@ -6,8 +6,8 @@ import (
 	"github.com/pkg/errors"
 )
 
-// 对 error 进行断言, 是否自定义的错误,即StackError
-func Assert(e error) *StackError {
+// 转换成自定义 error 对象
+func Convert(e error) *StackError {
 	switch e.(type) {
 	case *StackError:
 		return e.(*StackError)
@@ -16,14 +16,13 @@ func Assert(e error) *StackError {
 	}
 }
 
-// 对 error 进行断言, 是否自定义的错误,即StackError
-// 判断是否是,返回二个参数, 带bool
-func AssertB(e error) (*StackError, bool) {
+// 对 error 进行断言, 是否自定义的错误
+func Assert(e error) bool {
 	switch e.(type) {
 	case *StackError:
-		return e.(*StackError), true
+		return true
 	default:
-		return nil, false
+		return false
 	}
 }
 

@@ -30,29 +30,60 @@ func foo(s string) error {
 
 func main() {
 	// (1)普通使用
-	err := foo("stack error")
-	if err != nil {
-		log.Println(err)
-	}
-	// out:
-	// 2021/01/15 20:23:21 foo,stack error
+    err := foo("stack error")
+    if err != nil {
+        log.Println(err)
+    }
+    // out:
+    // 2021/01/15 20:23:21 foo,stack error
 
-	// (2)输出堆栈信息 by string
-	errStr := e.Assert(err) // 需要判断是否是自定义error, 否则无法输出堆栈信息.
-	if errStr != nil {
-		log.Println(errStr.ToStr())
-	}
-	// out:
-	//2021/01/15 20:23:21 file:1.how.go, line:10, func:foo
-	//file:1.how.go, line:15, func:main
+    // (2)输出堆栈信息 by string
+    if e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+        log.Println(e.Convert(err).ToStr())
+    }
+    // out:
+    //2021/01/15 20:23:21 file:1.how.go, line:10, func:foo
+    //file:1.how.go, line:15, func:main
 
-	// (3)输出堆栈信息 by array
-	errArr := e.Assert(err) // 需要判断是否是自定义error, 否则无法输出堆栈信息.
-	if errArr != nil {
-		log.Println(errArr.ToArr())
-	}
-	// out
-	//2021/01/15 20:23:21 [file:1.how.go, line:10, func:foo file:1.how.go, line:15, func:main]
+    // (3)输出堆栈信息 by array
+    if e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+        log.Println(e.Convert(err).ToArr())
+    }
+    // out
+    //2021/01/15 20:23:21 [file:1.how.go, line:10, func:foo file:1.how.go, line:15, func:main]
+}
+```
+
+带自定义`code`的错误信息
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/yezihack/e"
+)
+
+// 如果使用带 code 的 error
+func fooCode() error {
+	return e.NewCode(400, "eoo error")
 }
 
+func main() {
+	err := fooCode()
+	if e.Assert(err) {
+		e1 := e.Convert(err)
+		fmt.Printf("code:%d, err:%s\n", e1.Code(), e1.Msg())
+	}
+	//out:
+	//code:400, err:eoo error
+	if e.Assert(err) {
+		e1 := e.Convert(err)
+		fmt.Printf("code:%d, err:%s\n", e1.Code(), e1.ToStr())
+	}
+	// out:
+	//code:400, err:file:2.code.go, line:11, func:fooCode
+	//file:2.code.go, line:15, func:main
+}
 ```
