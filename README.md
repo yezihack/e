@@ -18,14 +18,23 @@
 
 ## 简单使用(Use)
 ```go
+package main
+import (
+	"github.com/yezihack/e"
+    "log"
+)
 func foo() error {
 	return e.New("foo")
 }
 func main() {
     err := foo()
-    if err != nil && e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
-        log.Println(e.Convert(err).ToStr()) // 输出字符串形式
-        log.Println(e.Convert(err).ToArr()) // 输出数组形式
+    if err != nil { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+        if e.Assert(err)  {
+            log.Println(e.Convert(err).ToStr()) // 输出字符串形式
+            log.Println(e.Convert(err).ToArr()) // 输出数组形式
+        } else {
+            log.Println(err) // 系统的 error
+        }
     }
 }
 ```
@@ -34,7 +43,9 @@ func main() {
 1. [基本用法](example/1.how.go)
 1. [Code用法](example/2.code.go)
 1. [兼容老项目里的 error](example/3.compatibility-error.go)
-1. 更多等待更新中...
+1. [获取 extra 的扩展错误](example/4.extra.go)
+1. [gin中使用](example/5.gin.go)
+1. 更多等待更新中... 
 
 输出普通信息和堆栈信息(string or array)
 ```go
