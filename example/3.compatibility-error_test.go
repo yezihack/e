@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"log"
+	"testing"
 
 	"github.com/yezihack/e"
 )
@@ -24,8 +25,7 @@ func MyFoo() error {
 	}
 	return nil
 }
-
-func main() {
+func TestMyFoo(t *testing.T) {
 	err := MyFoo()
 	if err != nil && e.Assert(err) {
 		log.Fatalln(e.Convert(err).ToArr())

@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"strconv"
+	"testing"
 	"time"
 
 	"github.com/yezihack/e"
@@ -13,7 +14,7 @@ import (
 // curl -X GET http://localhost:8080/home/2
 // curl -X GET http://localhost:8080/home/2a
 
-func main() {
+func TestHome(t *testing.T) {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, "1.0.0")

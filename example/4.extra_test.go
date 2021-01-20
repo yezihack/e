@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"testing"
 
 	"fmt"
 
@@ -16,8 +17,7 @@ func div(x, y int) (int, error) {
 	}
 	return x / y, nil
 }
-
-func main() {
+func TestDiv(t *testing.T) {
 	a, err := div(1, 0)
 	if e.Assert(err) {
 		// 输出 extra 里的错误

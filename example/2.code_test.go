@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"testing"
 
 	"github.com/yezihack/e"
 )
@@ -10,8 +11,7 @@ import (
 func fooCode() error {
 	return e.NewCode(400, "eoo error")
 }
-
-func main() {
+func TestFooCode(t *testing.T) {
 	err := fooCode()
 	if e.Assert(err) {
 		e1 := e.Convert(err)

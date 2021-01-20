@@ -1,7 +1,12 @@
-# golang 追踪堆栈错误包
-> Golang tracks stack error package. 追踪堆栈错误包
+# golang 优雅追踪堆栈错误包
+> Golang tracks stack error package. 优雅追踪堆栈错误包
 
 ## 介绍(Introduction)
+`github.com/yezihack/e` 项目是一个优雅地追踪你的堆栈信息.方便存储日志里.
+而且还扩展了`error`包,自定义 `code,msg` 信息.
+
+## 
+
 基于`github.com/pkg/errors`包进行封装,方便开发项目中使用. 
 
 这个包本身是可以输出堆栈信息的,但是输出是原始的堆栈信息

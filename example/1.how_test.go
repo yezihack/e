@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"testing"
 
 	"github.com/yezihack/e"
 )
@@ -9,8 +10,7 @@ import (
 func foo(s string) error {
 	return e.New("foo," + s)
 }
-
-func main() {
+func TestFoo(t *testing.T) {
 	// (1)普通使用
 	err := foo("stack error")
 	if err != nil {
