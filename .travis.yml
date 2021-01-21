@@ -11,15 +11,20 @@ os:
 notifications:  # 邮箱通知
   email: freeit@126.com
 
-before_install: # 主要安装一些系统依赖
+go_import_path:
+  - github.com/gin-gonic/gin
+  - github.com/pkg/errors
+  - github.com/smartystreets/goconvey
 
-install: # 安装
+before_install: # 主要安装一些系统依赖, true跳过
   - go mod tidy
+
+install: true # 安装
 
 script:
   - echo "run"
   - go test -race -coverprofile=coverage.txt -covermode=atomic
-  - make test
+  - go test -v ./...
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
