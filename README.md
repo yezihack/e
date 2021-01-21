@@ -1,7 +1,8 @@
 ![workflows](https://github.com/yezihack/e/workflows/Go/badge.svg)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yezihack/e/Go)
 [![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
-[![GitHub license](https://img.shields.io/github/license/yezihack/e)](https://github.com/yezihack/e/blob/main/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yezihack/e)](https://goreportcard.com/report/github.com/yezihack/e)
+![Gitter](https://img.shields.io/gitter/room/yezihack/e)
 
 * [Golang graceful trace stack error packet](#golang-graceful-trace-stack-error-packet)
   * [Install](#install)
