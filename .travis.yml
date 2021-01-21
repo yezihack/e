@@ -8,12 +8,18 @@ os:
   - linux
   - osx
 
-script:
-  - echo "test"
-  - go test -race -coverprofile=coverage.txt -covermode=atomic
+notifications:  # 邮箱通知
+  email: freeit@126.com
 
-before_install:
-  - go get -t -v ./...
+before_install: # 主要安装一些系统依赖
+
+install: # 安装
+  - go mod tidy
+
+script:
+  - echo "run"
+  - go test -race -coverprofile=coverage.txt -covermode=atomic
+  - make test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
