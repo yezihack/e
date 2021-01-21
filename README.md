@@ -1,8 +1,8 @@
-![workflows](https://github.com/yezihack/e/workflows/Go/badge.svg)
+[![workflows](https://github.com/yezihack/e/workflows/Go/badge.svg)](https://github.com/yezihack/e/actions?query=workflow%3AGo)
 [![codecov](https://codecov.io/gh/yezihack/e/branch/main/graph/badge.svg?token=QZSV2DZM60)](https://codecov.io/gh/yezihack/e)
 [![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yezihack/e)](https://goreportcard.com/report/github.com/yezihack/e)
-![Gitter](https://img.shields.io/gitter/room/yezihack/e)
+[![Gitter](https://img.shields.io/gitter/room/yezihack/e)](https://gitter.im/yezihack-e/community)
 
 * [Golang graceful trace stack error packet](#golang-graceful-trace-stack-error-packet)
   * [Install](#install)
