@@ -45,7 +45,7 @@ func main() {
             log.Println(e.Convert(err).ToStr()) // output string form
             log.Println(e.Convert(err).ToArr()) // output array form
         } else {
-            log.Println(err) // 系统的 error
+            log.Println(err) // system error
         }
     }
 }
