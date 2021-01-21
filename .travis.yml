@@ -10,7 +10,6 @@ os:
 
 script:
   - echo "test"
-  - make test
   - go test -race -coverprofile=coverage.txt -covermode=atomic
 
 before_install:
