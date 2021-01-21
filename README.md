@@ -1,4 +1,7 @@
-[![Documentation](https://godoc.org/gopkg.in/gomail.v2?status.svg)](https://godoc.org/gopkg.in/gomail.v2)
+![workflows](https://github.com/yezihack/e/workflows/Go/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yezihack/e/Go)
+[![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
+[![GitHub license](https://img.shields.io/github/license/yezihack/e)](https://github.com/yezihack/e/blob/main/LICENSE)
 
 [中文README](README-CN.md)
 # Golang graceful trace stack error packet

@@ -1,3 +1,7 @@
+![workflows](https://github.com/yezihack/e/workflows/Go/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yezihack/e/Go)
+[![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
+[![GitHub license](https://img.shields.io/github/license/yezihack/e)](https://github.com/yezihack/e/blob/main/LICENSE)
 
 [English](README.md)
 # golang 优雅追踪堆栈错误包
