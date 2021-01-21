@@ -51,8 +51,11 @@ func main() {
 }
 ```
 ## Testing
-`go get github.com/smartystreets/goconvey`
-`goconvey -port 8080`
+```
+go get github.com/smartystreets/goconvey
+goconvey -port 8080
+```
+
 
 ## Example
 1. [basic usage](example/1.how_test.go)
