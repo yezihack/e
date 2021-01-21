@@ -14,7 +14,7 @@
   * [Example](#example)
 
 [中文README](README-CN.md)
-# Golang graceful trace stack error packet
+# Golang graceful trace stack error package
 >Golang tracks stack error package
 
 

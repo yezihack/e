@@ -16,7 +16,7 @@
 
 [English](README.md)
 # golang 优雅追踪堆栈错误包
-> Golang tracks stack error package. 优雅追踪堆栈错误包
+> Golang graceful tracks stack error package. 优雅追踪堆栈错误包
 
 ## 安装(Install)
 ```
