@@ -3,6 +3,15 @@
 [![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
 [![GitHub license](https://img.shields.io/github/license/yezihack/e)](https://github.com/yezihack/e/blob/main/LICENSE)
 
+* [Golang graceful trace stack error packet](#golang-graceful-trace-stack-error-packet)
+  * [Install](#install)
+  * [Introduction](#introduction)
+  * [Features](#features)
+  * [Documentation](#documentation)
+  * [Simple use](#simple-use)
+  * [Testing](#testing)
+  * [Example](#example)
+
 [中文README](README-CN.md)
 # Golang graceful trace stack error packet
 >Golang tracks stack error package

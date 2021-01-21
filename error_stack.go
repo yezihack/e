@@ -32,11 +32,12 @@ func (s *state) Precision() (prec int, ok bool) {
 
 // Flag implement fmt.Formatter interface.
 func (s *state) Flag(c int) bool {
-	return false
+	return false // 控制是否输出详细路径. 如果为false则输出相对路径, 如果是true输出绝对路径
 }
 
 func frameField(f errors.Frame, s *state, c rune) string {
 	f.Format(s, c)
+
 	return string(s.b)
 }
 

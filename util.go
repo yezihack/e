@@ -2,8 +2,6 @@ package e
 
 import (
 	"fmt"
-
-	"github.com/pkg/errors"
 )
 
 // 转换成自定义 error 对象
@@ -24,17 +22,6 @@ func Assert(e error) bool {
 	default:
 		return false
 	}
-}
-
-func Is(err, target error) bool {
-	return errors.Is(err, target)
-}
-func As(err, target error) bool {
-	return errors.As(err, target)
-}
-
-func UnWrap(err error) error {
-	return errors.Unwrap(err)
 }
 
 // 打印堆栈信息 by str

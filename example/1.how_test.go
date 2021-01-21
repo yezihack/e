@@ -13,8 +13,9 @@ func foo() error {
 	return e.New("foo")
 }
 func TestFoo(t *testing.T) {
-	err := foo()
+
 	Convey("foo", t, func() {
+		err := foo()
 		Convey("(1)普通使用", func() {
 			So(err.Error(), ShouldEqual, "foo")
 			// output: foo

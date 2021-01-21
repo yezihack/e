@@ -3,6 +3,18 @@
 [![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
 [![GitHub license](https://img.shields.io/github/license/yezihack/e)](https://github.com/yezihack/e/blob/main/LICENSE)
 
+
+
+* [golang 优雅追踪堆栈错误包](#golang-优雅追踪堆栈错误包)
+  * [安装(Install)](#安装install)
+  * [介绍(Introduction)](#介绍introduction)
+  * [特色(Features)](#特色features)
+  * [文档(Documentation)](#文档documentation)
+  * [简单使用(Use)](#简单使用use)
+  * [测试(Testing)](#测试testing)
+  * [实例(Example)](#实例example)
+
+
 [English](README.md)
 # golang 优雅追踪堆栈错误包
 > Golang tracks stack error package. 优雅追踪堆栈错误包
