@@ -1,0 +1,13 @@
+language: go
+go:
+  - 1.15.6
+
+sudo: required
+
+os:
+  - linux
+  - osx
+
+script:
+  - echo "test"
+  - make test

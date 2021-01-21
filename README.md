@@ -1,58 +1,62 @@
-# golang 优雅追踪堆栈错误包
-> Golang tracks stack error package. 优雅追踪堆栈错误包
+[![Documentation](https://godoc.org/gopkg.in/gomail.v2?status.svg)](https://godoc.org/gopkg.in/gomail.v2)
 
-## 介绍(Introduction)
-`github.com/yezihack/e` 项目是一个优雅地追踪你的堆栈信息.方便存储日志里.
-而且还扩展了`error`包,自定义 `code,msg` 信息.
+[中文README](README-CN.md)
+# Golang graceful trace stack error packet
+>Golang tracks stack error package
 
-## 
+## Introduction
+`github.com/yezihack/e ` Project is a graceful way to track your stack information. 
+Easy to store in log, It also extends the 'error' package, custom 'code, msg' information.
 
-基于`github.com/pkg/errors`包进行封装,方便开发项目中使用. 
+## Features
+>Trace stack error messages gracefully
 
-这个包本身是可以输出堆栈信息的,但是输出是原始的堆栈信息
+1. Based on` github.com/pkg/errors `Package
+2. Support 'code', 'msg' custom error code and error information
+3. Convenient storage of log 'JSON' files
+4. The stack information is displayed humanized
 
-存储在日志里查看不友好,而`github.com/yezihack/e`对堆栈信息进行封装了.
-
-而且重新实现了系统自带的`error`接口,提供 `code` 自定义功能.
-
-## 文档(Documentation)
+## Documentation
 [https://godoc.org/github.com/yezihack/e](https://godoc.org/github.com/yezihack/e)
 
-## 安装(Install)
-`go get github.com/yezihack/e`
+## Install
+`go get  github.com/yezihack/e `
 
-## 简单使用(Use)
+## Simple use
 ```go
 package main
 import (
-	"github.com/yezihack/e"
+    "github.com/yezihack/e"
     "log"
 )
 func foo() error {
-	return e.New("foo")
+    return e.New("foo")
 }
 func main() {
     err := foo()
-    if err != nil { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+    if err != nil { // you need to determine whether it is a custom error, otherwise you cannot output stack information
         if e.Assert(err)  {
-            log.Println(e.Convert(err).ToStr()) // 输出字符串形式
-            log.Println(e.Convert(err).ToArr()) // 输出数组形式
+            log.Println(e.Convert(err).ToStr()) // output string form
+            log.Println(e.Convert(err).ToArr()) // output array form
         } else {
             log.Println(err) // 系统的 error
         }
     }
 }
 ```
+## Testing
+`go get github.com/smartystreets/goconvey`
+`goconvey -port 8080`
 
-## 实例(Example)
-1. [基本用法](example/1.how.go)
-1. [Code用法](example/2.code.go)
-1. [兼容老项目里的 error](example/3.compatibility-error.go)
-1. [获取 extra 的扩展错误](example/4.extra.go)
-1. [gin中使用](example/5.gin.go)
-1. 更多等待更新中... 
+## Example
+1. [basic usage](example/1.how_test.go)
+1. [code usage](example/2.code_test.go)
+1. [compatible with error in old projects](example/3.compatibility-error_test.go)
+1. [get extension error of extra](example/4.extra_test.go)
+1. [used in gin](example/5.gin_test.go))
+1. More waiting to be updated
 
-输出普通信息和堆栈信息(string or array)
+Output general information and stack information (string or array)
 ```go
 package main
 
@@ -67,7 +71,7 @@ func foo(s string) error {
 }
 
 func main() {
-	// (1)普通使用
+	// (1) general use
     err := foo("stack error")
     if err != nil {
         log.Println(err)
@@ -75,16 +79,16 @@ func main() {
     // out:
     // 2021/01/15 20:23:21 foo,stack error
 
-    // (2)输出堆栈信息 by string
-    if e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+    // (2)output stack information by string
+    if e.Assert(err) { // you need to determine whether it is a custom error, otherwise you cannot output stack information.
         log.Println(e.Convert(err).ToStr())
     }
     // out:
     //2021/01/15 20:23:21 file:1.how.go, line:10, func:foo
     //file:1.how.go, line:15, func:main
 
-    // (3)输出堆栈信息 by array
-    if e.Assert(err) { // 需要判断是否是自定义error, 否则无法输出堆栈信息.
+    // (3) output stack information by array
+    if e.Assert(err) { // you need to determine whether it is a custom error, otherwise you cannot output stack information.
         log.Println(e.Convert(err).ToArr())
     }
     // out
@@ -92,7 +96,7 @@ func main() {
 }
 ```
 
-带自定义`code`的错误信息
+Error message with custom 'code'
 
 ```go
 package main
@@ -103,7 +107,7 @@ import (
 	"github.com/yezihack/e"
 )
 
-// 如果使用带 code 的 error
+// if you use error with code
 func fooCode() error {
 	return e.NewCode(400, "eoo error")
 }
