@@ -7,6 +7,12 @@
 # Golang graceful trace stack error packet
 >Golang tracks stack error package
 
+
+## Install
+```
+go get github.com/yezihack/e
+```
+
 ## Introduction
 `github.com/yezihack/e ` Project is a graceful way to track your stack information. 
 Easy to store in log, It also extends the 'error' package, custom 'code, msg' information.
@@ -21,9 +27,6 @@ Easy to store in log, It also extends the 'error' package, custom 'code, msg' in
 
 ## Documentation
 [https://godoc.org/github.com/yezihack/e](https://godoc.org/github.com/yezihack/e)
-
-## Install
-`go get  github.com/yezihack/e `
 
 ## Simple use
 ```go

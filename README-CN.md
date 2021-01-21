@@ -7,6 +7,11 @@
 # golang 优雅追踪堆栈错误包
 > Golang tracks stack error package. 优雅追踪堆栈错误包
 
+## 安装(Install)
+```
+go get github.com/yezihack/e
+```
+
 ## 介绍(Introduction)
 `github.com/yezihack/e` 项目是一个优雅地追踪你的堆栈信息.方便存储日志里.
 而且还扩展了`error`包,自定义 `code,msg` 信息.
@@ -21,8 +26,6 @@
 ## 文档(Documentation)
 [https://godoc.org/github.com/yezihack/e](https://godoc.org/github.com/yezihack/e)
 
-## 安装(Install)
-`go get github.com/yezihack/e`
 
 ## 简单使用(Use)
 ```go
