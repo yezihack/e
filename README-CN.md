@@ -1,9 +1,8 @@
 ![workflows](https://github.com/yezihack/e/workflows/Go/badge.svg)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yezihack/e/Go)
+[![codecov](https://codecov.io/gh/yezihack/e/branch/main/graph/badge.svg?token=QZSV2DZM60)](https://codecov.io/gh/yezihack/e)
 [![](https://img.shields.io/badge/GoDoc-reference-green)](https://pkg.go.dev/github.com/yezihack/e)
-[![GitHub license](https://img.shields.io/github/license/yezihack/e)](https://github.com/yezihack/e/blob/main/LICENSE)
-
-
+[![Go Report Card](https://goreportcard.com/badge/github.com/yezihack/e)](https://goreportcard.com/report/github.com/yezihack/e)
+![Gitter](https://img.shields.io/gitter/room/yezihack/e)
 
 * [golang 优雅追踪堆栈错误包](#golang-优雅追踪堆栈错误包)
   * [安装(Install)](#安装install)
