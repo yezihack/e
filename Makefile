@@ -1,9 +1,11 @@
 #!/bin/bash
 
+all:fmt test
+
 # 运行所有的测试用例
 test:
-	go test -v .
-	go test -v ./...
+	go test -v ./*.go -cover
+	go test -v ./... -cover
 
 # 安装 goconvey 框架
 install:
@@ -13,7 +15,5 @@ install:
 convey:install
 	goconvey -port 2021
 
-# 输出测试覆盖率
-cover:
-	go test -cover
-
+fmt:
+	go fmt ./*.go

@@ -1,53 +1,64 @@
 package e
 
 import (
-	"errors"
-	"testing"
-
+	"fmt"
+	"github.com/pkg/errors"
 	. "github.com/smartystreets/goconvey/convey"
+	"testing"
 )
+func withErr()error {
+	return With().Msg("not found id")
+}
 
-func TestErrorF(t *testing.T) {
-	Convey("ErrorF", t, func() {
-		err := func() error {
-			return ErrorF("my error:%s", "hello")
-		}
-		So(err(), ShouldNotBeNil)
+func TestWith(t *testing.T) {
+	Convey("with", t, func() {
+		err := withErr()
+		So(Convert(err).Msg(), ShouldEqual, "not found id")
+		So(Convert(err).Code(), ShouldEqual, 0)
+		So(Convert(err).Error(),ShouldEqual, "")
+		So(Convert(err).ToStr(), ShouldNotBeEmpty)
 	})
 }
 
-func TestNew(t *testing.T) {
-	Convey("New", t, func() {
-		err := func() error {
-			return New("hello e")
-		}
-		So(err(), ShouldNotBeNil)
+func Test_with_Err(t *testing.T) {
+	Convey("with", t, func() {
+		err := With().Err(errors.New("uid is not exist"))
+		So(Convert(err).Msg(), ShouldEqual, "")
+		So(Convert(err).Code(), ShouldEqual, 0)
+		So(Convert(err).Error(),ShouldEqual, "uid is not exist")
+		So(Convert(err).ToStr(), ShouldNotBeEmpty)
 	})
 }
 
-func TestWithMessage(t *testing.T) {
-	Convey("WithMessage", t, func() {
-		err := func() error {
-			return WithMessage(errors.New("hello"), "msg")
-		}
-		So(err(), ShouldNotBeNil)
+func Test_with_ErrMsg(t *testing.T) {
+	Convey("with", t, func() {
+		err := With().ErrMsg(errors.New("uid is not exist"), "github")
+		So(Convert(err).Msg(), ShouldEqual, "github")
+		So(Convert(err).Code(), ShouldEqual, 0)
+		So(Convert(err).Error(),ShouldEqual, "uid is not exist")
+		fmt.Printf("%+v", Convert(err).Err())
+		So(Convert(err).ToStr(), ShouldNotBeEmpty)
 	})
 }
 
-func TestWithMessageF(t *testing.T) {
-	Convey("WithMessageF", t, func() {
-		err := func() error {
-			return WithMessageF(errors.New("hello"), "(%s)", "msg")
-		}
-		So(err(), ShouldNotBeNil)
-	})
-}
-
-func TestWithStack(t *testing.T) {
-	Convey("WithMessageF", t, func() {
-		err := func() error {
-			return WithStack(errors.New("hello"))
-		}
-		So(err(), ShouldNotBeNil)
-	})
+func Test_with_Msg(t *testing.T) {
+	type args struct {
+		s      string
+		extras []error
+	}
+	tests := []struct {
+		name    string
+		args    args
+		wantErr bool
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			w := &with{}
+			if err := w.Msg(tt.args.s, tt.args.extras...); (err != nil) != tt.wantErr {
+				t.Errorf("Msg() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
 }

@@ -2,46 +2,39 @@ package e
 
 import "github.com/pkg/errors"
 
-// 信息+额外errs
-func New(s string, extras ...error) error {
+type Wither interface {
+	Msg(s string, extras ...error) error               // set msg
+	Err(err error, extras ...error) error              // set error
+	ErrMsg(err error, s string, extras ...error) error // set error and msg
+}
+type with struct {
+}
+
+// Invoke this function
+func With() Wither {
+	return &with{}
+}
+
+// Set the error when setting msg. because heap tracing is implement.
+func (w *with) Msg(s string, extras ...error) error {
 	return &StackError{
-		code:      0,
-		err:       errors.New(s),
+		err:       errors.New(""),
+		msg:       s,
 		extraErrs: extras,
 	}
 }
 
-// 格式+信息
-func ErrorF(format string, args ...interface{}) error {
+func (w *with) Err(err error, extras ...error) error {
 	return &StackError{
-		code: 0,
-		err:  errors.Errorf(format, args...),
-	}
-}
-
-// 错误堆栈设置+额外errs
-func WithStack(err error, extras ...error) error {
-	return &StackError{
-		code:      0,
 		err:       errors.WithStack(err),
 		extraErrs: extras,
 	}
 }
 
-// 错误+信息+额外errs
-func WithMessage(err error, msg string, extras ...error) error {
-	err = errors.WithStack(err)
+func (w *with) ErrMsg(err error, s string, extras ...error) error {
 	return &StackError{
-		code:      0,
-		err:       errors.Wrap(err, msg),
+		err:       errors.WithStack(err),
+		msg:       s,
 		extraErrs: extras,
-	}
-}
-
-// 错误+格式+信息
-func WithMessageF(err error, format string, args ...interface{}) error {
-	return &StackError{
-		code: 0,
-		err:  errors.Wrapf(err, format, args...),
 	}
 }

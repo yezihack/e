@@ -6,22 +6,28 @@ import "strings"
 type StackError struct {
 	code      int     // 错误码
 	err       error   // 错误信息 by error
+	msg       string  // 消息
+	uuid      string  // 跟踪ID
 	extraErrs []error // 额外的 error
 }
-
-// 实现系统自带的 error 接口
-func (c *StackError) Error() string {
-	return c.err.Error()
-}
-
 // 获取错误码. 只有设置了才会有.
 func (c *StackError) Code() int {
 	return c.code
 }
 
+// 继承系统定义的 error 接口
+func (c *StackError) Error() string {
+	return c.err.Error()
+}
+
+// return uuid
+func (c *StackError) UUID() string {
+	return c.uuid
+}
+
 // 获取错误信息
 func (c *StackError) Msg() string {
-	return c.err.Error()
+	return c.msg
 }
 
 // 获取错误

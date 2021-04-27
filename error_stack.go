@@ -43,6 +43,9 @@ func frameField(f errors.Frame, s *state, c rune) string {
 
 // MarshalStack implements pkg/errors stack trace marshaling.
 func MarshalStack(err error) []*StackSourceEntity {
+	if err == nil {
+		return nil
+	}
 	type stackTracer interface {
 		StackTrace() errors.StackTrace
 	}

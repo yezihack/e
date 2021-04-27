@@ -14,33 +14,6 @@ func sysFoo1() error {
 func foo1() error {
 	return errors.New("foo")
 }
-func show() error {
-	err := foo1()
-	err = WithStack(err)
-	return err
-}
-
-func TestConvert(t *testing.T) {
-	Convey("Convert", t, func() {
-		Convey("Convert-1", func() {
-			So(Convert(show()).ToStr(), ShouldContainSubstring, "show")
-		})
-		Convey("Convert-2", func() {
-			So(Convert(sysFoo1()), ShouldBeNil)
-		})
-	})
-}
-
-func TestAssert(t *testing.T) {
-	Convey("Assert", t, func() {
-		Convey("Asset-1", func() {
-			So(Assert(show()), ShouldBeTrue)
-		})
-		Convey("Asset-2", func() {
-			So(Assert(sysFoo1()), ShouldBeFalse)
-		})
-	})
-}
 
 func TestToStr(t *testing.T) {
 	Convey("ToStr", t, func() {
